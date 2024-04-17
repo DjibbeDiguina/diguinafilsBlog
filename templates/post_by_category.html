@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!--    feature setion -->
+<h3 class="text-uppercase text-warning">Gategory -> {{category.category_name}}</h3>
+<div class="row mb-2">
+    {% if posts %}
+  {% for post in posts %}
+ 
+  <div class="col-md-6">
+    <div class="card border-0" >
+      <div class="card-body">
+        <h3>{{post.title}}</h3>
+        <small class="mb-1 text-muted">{{post.create_at | timesince}} ago | {{post.author}}</small>
+        <p class="card-text">{{post.short_description | truncatewords:35 }}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+{% else %}
+<div class="alert alert-secondary" role="alert">
+    They are not Blog In this category <a href="{% url 'home' %}" class="alert-link">Go to home Page</a>. Give it a click to go in home page.
+  </div>
+  {% endif %}
+
+</div>
+
+
+{% endblock %}
