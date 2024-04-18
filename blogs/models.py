@@ -34,3 +34,10 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+    
+class About(models.Model):
+    header = models.CharField(max_length=50, unique=True)
+    description = models.TextField(max_length=300)
+
+    def __str__(self):
+        return self.header
