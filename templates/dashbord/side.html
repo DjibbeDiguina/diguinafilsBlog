@@ -1,0 +1,11 @@
+<div class="col-md-3">
+
+    <div class="nav flex-column nav-pills bg-light mb-3" aria-orientation="vertical">
+        <a class="nav-link  text-dark {% if 'home/' in request.path %} bg-primary {% endif %}" href="{% url 'home' %}" >Home</a>
+        <a class="nav-link  text-dark {% if '/dashbord/' == request.path %} bg-primary {% endif %}" href="{% url 'dashbord' %}" >Dashboard</a>
+        <a class="nav-link text-dark {% if 'categories/'  in request.path %}bg-primary {% elif 'add_category/'  in request.path %} bg-primary{% endif %}" href="{% url 'categories' %}">Categories</a>
+        <a class="nav-link  text-dark" href="">Posts</a>
+        <a class="nav-link  text-dark" href="">LogOut</a>
+      </div>
+
+</div>
