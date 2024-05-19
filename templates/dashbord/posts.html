@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+<!--left side -->
+
+{% include 'dashbord/side.html' %}
+
+<!--right side -->
+
+<div class="col-md-9">
+
+        <h3><i class="fa-solid fa-list fa-md text-primary"></i>&nbsp; All POSTS</h3>
+        <a href="{% url 'add_post' %}"><button type="button"  class="btn btn-secondary btn-md float-right mb-2"><i class="fa-solid fa-plus"></i> Add New</button></a>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Title</th>
+              <th scope="col">Categories</th>
+              <th scope="col">Authors</th>
+              <th scope="col">Status</th>
+              <th scope="col">Features</th>
+              <th scope="col">Activities</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for post in posts %}
+            <tr>
+              <th scope="row">{{forloop.count}}</th>
+              <td>{{post.title}}</td>
+              <td>{{post.category}}</td>
+              <td>{{post.author}}</td>
+              <td>{{post.status}}</td>
+              <td>{{post.is_featured}}</td>
+              <td>
+                <a href="{% url 'edit_post' post.id %}"><i class="fa-solid fa-pen-to-square fa-lg text-success"></i></a>&nbsp;&nbsp;  
+                <a href="{% url 'delete_post' post.id %}"><i class="fa-regular fa-trash-can fa-lg text-danger"></i></a>
+              </td>
+            </tr>
+            {% endfor %}
+            
+          </tbody>
+      </table>
+</div>
+
+</div>
+
+{% endblock %}

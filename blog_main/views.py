@@ -6,8 +6,8 @@ from django.contrib import auth
 
 def home(request):
     
-    featured_post = Blog.objects.filter(is_featured=True, status='Published').order_by('update_at')
-    blog_post = Blog.objects.filter(is_featured=False, status='Published')
+    featured_post = Blog.objects.filter(is_featured=True, status='Published').order_by('-update_at')
+    blog_post = Blog.objects.filter(is_featured=False, status='Published').order_by('-update_at')
     about = get_object_or_404(About)
     return render(request, 'home.html', {'featured_post':featured_post, 'blog_post':blog_post, 'about':about})
 

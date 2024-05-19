@@ -4,7 +4,7 @@
         <a class="nav-link  text-dark {% if 'home/' in request.path %} bg-primary {% endif %}" href="{% url 'home' %}" >Home</a>
         <a class="nav-link  text-dark {% if '/dashbord/' == request.path %} bg-primary {% endif %}" href="{% url 'dashbord' %}" >Dashboard</a>
         <a class="nav-link text-dark {% if 'categories/'  in request.path %}bg-primary {% elif 'add_category/'  in request.path %} bg-primary{% endif %}" href="{% url 'categories' %}">Categories</a>
-        <a class="nav-link  text-dark" href="">Posts</a>
+        <a class="nav-link  text-dark {% if 'posts/' in request.path %}bg-primary {% elif 'add_post/' in request.path %} bg-primary {% endif %} " href="{% url 'posts' %}">Posts</a>
         <a class="nav-link  text-dark" href="">LogOut</a>
       </div>
 
